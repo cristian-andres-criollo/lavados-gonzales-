@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/Perfil.css">
+    <link rel="stylesheet" href="./css/About.css">
+    <title>Perfil</title>
+    <link rel="icon" sizes="32x32" type="image/png" href="./css/img/Logo_LG.jpeg">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+     <!-- Panel de Navegación -->
+     <header class="header">
+        <div class="menu container"> 
+                  <input type="checkbox" id="menu">
+                  <label for="menu">
+                    <img src="" alt="">
+                  </label>
+                    <nav class="navbar">
+                    <ul>
+                      <li><a href=".\Lavados Gonzalez Admin.html">HogarGonzalez</a></li>
+                      <li><a href=".\about1.html">Conócenos</a></li>
+                      <li><a href=".\portafolio.html">Servicios</a></li>
+                      <li><a href=".\contacto.html">Contáctenos</a></li>
+                      <li class="active"><a href="./Profile.html">Perfil</a></li>
+                      <li><a href=".\Cerrar Sesion.php">Cerrar Sesión</a></li>
+                    </ul>   
+        </div>
+        <br><br>
+      </header>
+<br><br><br>
+    <!-- Profile Section -->
+    <div class="container profile-container">
+        <div class="profile-pic">
+            <img src="./css/img/Usuario-removebg-preview.png" alt="Foto de perfil" width="250" height="280">
+        </div>
+        <div class="profile-details">
+            <h2>Usuario</h2>
+            <p>Total de mensajes: 000</p>
+            <p>Última conexión: 22/10/2023</p>
+            <button class="btn-change-photo" onclick="document.getElementById('fileInput').click()" style="color: aliceblue;">Cambiar Foto de Perfil</button>
+        </div>
+
+        <input type="file" id="fileInput" accept="image/*" style="display: none;">
+    </div>
+
+    <!-- JavaScript para cambiar la foto de perfil -->
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    document.querySelector('.profile-pic img').setAttribute('src', event.target.result);
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+
+    <!-- Scripts para Bootstrap y jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <footer style="background-color: #ffffff; color: #00334d; padding: 40px 0; border-top: 10px solid #00334d;">
+      <div style="text-align: center;">
+        <h4><b>Lavados Gonzalez</b></h4>
+        <p style="max-width: 600px; margin: 0 auto; line-height: 1.6;">
+          Lavados Gonzalez ofrece servicios profesionales de limpieza en Bogotá y sus alrededores. Nos especializamos en limpieza profunda, mantenimiento de suelos, y más. ¡Contáctanos para obtener una cotización!
+        </p>
+        <br>
+        <ul class="social" style="list-style: none; padding: 20px 0 10px;">
+          <li style="display: inline-block; margin: 0 15px;">
+            <a href="https://www.facebook.com/profile.php?id=100082858706474&mibextid=ZbWKwL" style="color: #00334d; text-decoration: none;">
+              <i class="fab fa-facebook fa-2x"></i>
+            </a>
+          </li>
+          <li style="display: inline-block; margin: 0 15px;">
+            <a href="#" style="color: #00c3ff; text-decoration: none;">
+              <i class="fab fa-twitter fa-2x"></i>
+            </a>
+          </li>
+          <li style="display: inline-block; margin: 0 15px;">
+            <a href="#" style="color: #ff0095; text-decoration: none;">
+              <i class="fab fa-instagram fa-2x"></i>
+            </a>
+          </li>
+        </ul>
+        <br><center>
+        <div style="margin-top: 20px;">
+          <p><b>Teléfono:</b> <a href="tel:3144368571" style="color: #00334d; text-decoration: none;">314-436-8571</a></p>
+          <p><b>Email:</b> <a href="mailto:contacto@lavadosgonzalez.com" style="color: #00334d; text-decoration: none;">contacto@lavadosgonzalez.com</a></p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 20px;">
+        <p>&copy; 2024 Lavados Gonzalez. Todos los derechos reservados.</p>
+        <p>
+          <a href="./terms.html" style="color: #00c3ff; text-decoration: none; margin-right: 15px;">Términos y Condiciones</a> | 
+          <a href="./privacy.html" style="color: #00c3ff; text-decoration: none; margin-left: 15px;">Política de Privacidad</a>
+        </p>
+      </div>
+  </center>
+    </footer>
+
+    
+</body>
+</html>

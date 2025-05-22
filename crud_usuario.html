@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href=".\css\crud.css">
+</head>
+<body>
+    <main id="app" class="grid">
+        <h1><b>Superheroes</b> list</h1>
+        <hr>
+    
+        <router-view></router-view>
+      </main>
+      
+      <template id="heroes-list">
+      <section>
+        <table>
+          <thead>
+          <tr>
+            
+            <th>Name</th>
+            <th>Power</th>
+            <th>Badass</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr v-for="hero in filteredHeroes">
+            <td>
+              <router-link v-bind:to="{name: 'hero', params: {hero_id: hero.id}}">{{ hero.name }}</router-link>
+            </td>
+            <td>{{ hero.power }}</td>
+            <td>{{ hero.badass }}</td>
+            <td>
+              <router-link v-bind:to="{name: 'hero-edit', params: {hero_id: hero.id}}">
+                Edit
+              </router-link>
+              <span> / </span>
+              <router-link v-bind:to="{name: 'hero-delete', params: {hero_id: hero.id}}">
+                Delete
+              </router-link>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <router-link class="btn btn-main" v-bind:to="{path: '/hero-add'}">
+          Add Superhero
+        </router-link>
+      </section>
+      </template>
+      
+      <template id="hero">
+      <section class="grid">
+        <h2>{{ hero.name }}</h2>
+        <p>
+          <b>Power:</b> {{ hero.power }}
+          <br>
+          <b>Badass:</b> {{ hero.badass }}
+        </p>
+        <br>
+        <router-link v-bind:to="'/'">Back</router-link>
+      </section>
+      </template>
+      
+      <template id="hero-add">
+      <section>
+        <h2>Add Superhero</h2>
+        <form v-on:submit.prevent="createHero">
+          <label>Name</label>
+          <input id="add-name" v-model="hero.name" required/>
+          <label>Superpower</label>
+          <textarea id="add-power" rows="8" v-model="hero.power" required></textarea>
+          <label>Badass</label>
+          <input type="number" min="0" max="10" v-model="hero.badass" required/>
+          <button type="submit" class="btn btn-main">Create</button>
+          <router-link class="btn" v-bind:to="'/'">Cancel</router-link>
+        </form>
+      </section>
+      </template>
+      
+      <template id="hero-edit">
+      <section>
+        <h2>Edit Hero</h2>
+        <form v-on:submit.prevent="updateHero">
+          <label>Name</label>
+          <input v-model="hero.name" required/>
+          <label>Superpower</label>
+          <textarea rows="10" v-model="hero.power"></textarea>
+          <label>Badass</label>
+          <input type="number" v-model="hero.badass"/>
+          <button type="submit" class="btn btn-main">Update</button>
+          <router-link class="btn" v-bind:to="'/'">Cancel</router-link>
+        </form>
+      </section>
+      </template>
+      
+      <template id="hero-delete">
+      <section>
+        <h2>Delete <b>{{ hero.name }}</b>?</h2>
+        <form v-on:submit.prevent="deleteHero">
+          <p>Are You sure? You want to delete 
+            <b>{{ hero.name }}</b> from this Universe?
+            He will be very upset...
+          </p>
+          <button type="submit" class="btn btn-main">Delete</button>
+          <router-link class="btn" v-bind:to="'/'">Cancel</router-link>
+        </form>
+      </section>
+      </template>
+       
+      <script>// [ Data ]
+
+        let heroes = [
+            { id : 0, name : 'Batman', power : 'Fist fighting', badass: 10 },
+            { id : 1, name : 'Superman', power : 'Laser eyes', badass: 7 },
+            { id : 2, name : 'Flash', power : 'Too fast', badass: 5 },
+            { id : 3, name : 'Spiderman', power : 'Just a nice guy', badass: 1 },
+            { id : 4, name : 'Hulk', power : 'SMASH!', badass: 42 }
+          ];
+          
+          // [ Components ]
+          
+          let HeroesList = Vue.extend({
+            template: '#heroes-list',
+            data: function() { return { heroes } },
+            computed: { filteredHeroes: function() { return this.heroes; } }
+          });
+          
+          let Hero = Vue.extend({
+            template: '#hero',
+            data: function() { return { hero: findHero(this.$route.params.hero_id)} }
+          });
+          
+          let HeroAdd = Vue.extend({
+            template: '#hero-add',
+            data: function() { return { hero: { name: '', power: '', badass: 1}} },
+            methods: {
+              createHero: function() {
+                let hero = this.hero;
+                heroes.push({
+                  id:     getNextId(),
+                  name:   hero.name,
+                  power:  hero.power,
+                  badass: hero.badass
+                });
+                router.push('/');
+              }
+            }
+          });
+          
+          let HeroEdit = Vue.extend({
+            template: '#hero-edit',
+            data: function () {
+              return { hero: findHero(this.$route.params.hero_id) };
+            },
+            methods: {
+              updateHero: function () {
+                let hero = this.hero; 
+                heroes[findHeroKey(hero.id)] = {
+                  id:     hero.id,
+                  name:   hero.name,
+                  power:  hero.power,
+                  badass: hero.badass
+                }
+                router.push('/');
+              }
+            }
+          });
+          
+          let HeroDelete = Vue.extend({
+            template: '#hero-delete',
+            data: function () {
+              return { hero: findHero(this.$route.params.hero_id) };
+            },
+            methods: {
+              deleteHero: function () {
+                heroes.splice(findHeroKey(this.$route.params.hero_id), 1);
+                router.push('/');
+              }
+            }
+          });
+          
+          // [ Database connectors ]
+          
+          function findHero(id) {
+            for (let i = 0; i < heroes.length; ++i) {
+              if (heroes[i].id === id) return heroes[i];
+            }
+          }
+          function findHeroKey(id) {
+            for (let i = 0; i < heroes.length; ++i) {
+              if (heroes[i].id === id) return i;
+            }
+          }
+          function getNextId() { return (heroes[heroes.length-1].id+1); }
+          
+          // [ App + Router ]
+          
+          let router = new VueRouter(
+            { routes: [
+              { path: '/', component: HeroesList},                                         // Heroes list
+              { path: '/hero/:hero_id', component: Hero, name : 'hero'},                   // Hero details
+              { path: '/hero-add', component: HeroAdd},                                    // Add new hero
+              { path: '/hero/:hero_id/edit', component: HeroEdit, name: 'hero-edit'},      // Edit hero
+              { path: '/hero/:hero_id/delete', component: HeroDelete, name: 'hero-delete'} // Delete hero
+            ]}
+          );
+          
+          let vm = new Vue({router}).$mount('#app');</script>
+</body>
+</html>

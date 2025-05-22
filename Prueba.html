@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style1.css">
+    <link rel="stylesheet" href="./css/Portafolio.css">
+    <link rel="stylesheet" href=".\css\General.css">
+    <link rel="stylesheet" href=".\css\Inicio.css">
+    <title>Lavados Gonzalez</title>
+    <link rel="icon" sizes="32x32" type="image/png" href=.\css\img\Logo_LG.jpeg>
+    <script src="https://kit.fontawesome.com/48649cf999.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            color: black;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #00334d;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #00334d;
+        }
+
+        p {
+            font-size: 18px;
+            color: black;
+        }
+
+        .scrolling-card {
+            display: flex;
+            gap: 20px;
+        }
+
+        .card {
+            transition: transform 0.3s ease;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .change-images-btn {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #00334d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .change-images-btn:hover {
+            background-color: #00557f;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h4 class="main__heading" style="color: #00334d;">Un poco de nuestro trabajo</h4>
+        <div class="scrolling-container">
+            <div class="trabajos">
+                <div class="scrolling-card">
+                    <div class="card">
+                        <img src="./css/img/antes y despues4.jpg" alt="Trabajo 1" />
+                        <div class="card-info">
+                            <h2>Lavado de colchones</h2>
+                            <p>En general, siempre prueba cualquier producto de limpieza en un área pequeña antes de usarlo y sigue las instrucciones del fabricante para</p>
+                            <button class="change-images-btn">Cambiar Imágenes</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./css/img/antes y despues3.jpg" alt="Trabajo 4" />
+                        <div class="card-info">
+                            <h2>Limpieza de muebles</h2>
+                            <p>En general, siempre prueba cualquier producto de limpieza en un área pequeña antes de usarlo y sigue las instrucciones del fabricante para</p>
+                            <button class="change-images-btn">Cambiar Imágenes</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./css/img/antes y despues1.jpg" alt="Trabajo 5" />
+                        <div class="card-info">
+                            <h2>Limpieza de sillas</h2>
+                            <p>En general, siempre prueba cualquier producto de limpieza en un área pequeña antes de usarlo y sigue las instrucciones del fabricante para</p>
+                            <button class="change-images-btn">Cambiar Imágenes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const imageGroups = {
+            0: [
+                "./css/img/nueva-imagen1.jpg",
+                "./css/img/nueva-imagen2.jpg",
+                "./css/img/nueva-imagen3.jpg"
+            ],
+            1: [
+                "./css/img/antes y despues2.jpg",
+                "./css/img/nueva-imagen5.jpg",
+                "./css/img/antes y despues.jpg"
+            ],
+            2: [
+                "./css/img/nueva-imagen7.jpg",
+                "./css/img/nueva-imagen8.jpg",
+                "./css/img/nueva-imagen9.jpg"
+            ]
+        };
+
+        document.querySelectorAll('.change-images-btn').forEach((button, index) => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.card img').forEach((img, imgIndex) => {
+                    if (imgIndex !== index) {
+                        img.src = imageGroups[index][imgIndex % imageGroups[index].length];
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

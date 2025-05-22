@@ -1,0 +1,152 @@
+html {
+    height: 100%;
+  }
+  body {
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+  }
+body {
+	align-items: center;
+	background-color: var(--white);
+	background: color(srgb red green blue);
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;	
+}
+.caja {
+	font-family: Century 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size: 18px;
+	font-weight: 400;
+	text-align: center;
+	color: #000000;
+	background: linear-gradient(#ffffff, hsl(0, 0%, 71%));
+	padding-top: 20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	margin: 0 0 25px;
+	overflow: hidden;
+	border-radius:  35px 0px 35px 0px;
+	-moz-border-radius: 35px 0px 35px 0px;
+	-webkit-border-radius: 35px 0px 35px 0px;
+	border: 2px solid #000000;
+	position: relative;
+	top: 225px;
+
+}
+footer {
+	color: #000000;
+	background-color: #ffffff;
+	padding-top: 20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	margin: 0 0 25px;
+	overflow: hidden;
+	border: linear-gradient(#ffffff, hsl(0, 0%, 100%));
+	border-color: #ffffff;
+}
+  .container {
+	width: 100%;
+	max-width: 1300px;
+	margin: auto;
+  }
+  
+  
+  .reseñas {
+	cursor: pointer;
+	display: inline-block;
+	border: 0;
+	font-weight: bold;
+	padding: 10px 20px;
+	background: #262626;
+	color: #fff;
+	font-size: 15px;;
+  }
+  .showcase {
+	width: 100%;
+	height: 400px;
+	background: linear-gradient(#007795, hsl(212, 100%, 28%));	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	justify-content: flex-end;
+	padding-bottom: 50px;
+	margin-bottom: 30px;
+	margin-top: 5%;
+	
+  }
+  .carta1 {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 130px;
+	margin-bottom: 40px;
+	width: 500px;
+	max-width: 105rem;
+    padding: 3em 1.5em;
+  }
+  .cajaR {
+	width: 100%;
+	height: 350px;
+	background: url('') ;
+	margin-bottom: 20px;
+  }
+  
+	.carta1 {
+	  grid-template-columns: repeat(4, 1fr);
+	}
+	.cajaM {
+	  grid-template-columns: 1fr;
+	}
+  
+
+  a { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #000;}
+
+button {
+	background: linear-gradient(#007795, hsl(212, 100%, 28%));
+	color: #ffffff;
+}
+.row{
+	background: linear-gradient(#007795, hsl(212, 100%, 28%));
+	color: #ffffff;
+}
+.img-container {
+    text-align: center;
+    display: block;
+    
+  }
+  .cuadro{
+background: linear-gradient(#007795, hsl(212, 100%, 28%));
+height: 300px; ;
+width: 600px; ;
+margin: 0 auto;
+padding: 3px 10px;
+border: rgb(4, 147, 203) 5px solid;
+border-radius:20px;
+text-align:center;
+font-family: 'Times New Roman', Times, serif;
+  }
+  .nosotros{
+    width: 200px;
+    height: 200px;   
+  }
+.contenedor{
+    width: 95%;
+	max-width: 1000px;
+	margin: auto;
+  }
+  header nav{
+   margin-bottom: 10px;
+  }
+  .row{
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	width: 100%;
+	max-width: 1000px;
+	box-shadow: 0px 4px 3px rgba(0, 0, 0, .5) ;
+   }
+

@@ -1,0 +1,261 @@
+*{
+    margin: 80;
+    padding: 80;
+    box-sizing:border-box;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  
+  :focus{
+    outline: none;
+  }
+  
+  body{
+    background: #007795;
+    font-family: 'Open sans';
+  }
+  
+  /* FORMULARIO =================================== */
+  
+  .form_wrap{
+    width: 1050px;
+    height: 530px;
+    margin: 50px auto;
+    display: flex;
+  margin-left: auto;
+  margin-right: auto;
+    background: #000000;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Informacion de Contacto*/
+  
+  .cantact_info::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  
+    position: absolute;
+    top: 50;
+    left: 50;
+  
+    background:#007795;
+    opacity: 0.9;
+  }
+  
+  .cantact_info{
+    width: 38%;
+    position: relative;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+  
+  
+  }
+  
+  .info_title,
+  .info_items{
+    position: relative;
+    z-index: 2;
+    color: #000000;
+  }
+  
+  .info_title{
+    margin-bottom: 60px;
+  }
+  
+  .info_title span{
+    font-size: 100px;
+    display: block;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .info_title h2{
+    font-size: 35px;
+    text-align: center;
+    text-align: right;
+  }
+  
+  .info_items p{
+    display: flex;
+    align-items: center;
+  
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .info_items p:nth-child(1) span{
+    font-size: 30px;
+    margin-right: 10px;
+  }
+  
+  .info_items p:nth-child(2) span{
+    font-size: 50px;
+    margin-right: 15px;
+    margin-left: 4px;
+  }
+  
+  
+  /* Formulario de contacto*/
+  form {
+  padding: 50 px 55px;
+  box-shadow: 0 0 20px rgb(0, 0, 0);
+  border-radius: 20px;
+  text-align: center;
+  width: 400px;
+  }
+  
+  
+  
+  
+  
+  
+  
+  form.form_contact{
+    width: 40%;
+    padding: 40px 40px;
+   text-align: center;
+  }
+  
+  form.form_contact h2{
+  margin-left: auto;
+  margin-right: auto;
+    font-size: 25px;
+    font-weight: 600;
+    color:#00334d;
+    margin-bottom: 30px;
+  }
+  
+  form.form_contact .user_info{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form.form_contact label{
+    font-weight: 600;
+  }
+  
+  form.form_contact input,
+  form.form_contact textarea{
+  width: 100%;
+  padding: 8px 0px 5px;
+  margin-bottom: 20px;
+   
+  
+    border: none;
+    border-bottom: 2px solid #00334d;
+  
+    font-family: Arial, sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-weight: 400;
+  }
+  
+  form.form_contact textarea{
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 90px;
+  }
+  
+  form.form_contact input[type="button"]{
+    width: 180px;
+    background: black;
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+  
+    align-self: flex-end;
+  
+    color: #000000;
+    font-family: 'Open sans';
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  form.form_contact input[type="button"]:hover{
+    background: #000000;
+  }
+  
+  /* Ventana de errores*/
+  .modal_wrap{
+    width: 100%;
+    height: 100vh;
+    background: black;
+  
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .mensaje_modal{
+    background: black;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+    width: 400px;
+    padding: 30px 20px 15px;
+  }
+  
+  .mensaje_modal h3{
+    text-align: center;
+    font-family: 'Ubuntu';
+    font-size: 20px;
+    font-weight: 400;
+  }
+  
+  .mensaje_modal h3:after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #007795;
+    margin: 10px 0px 15px;
+  }
+  
+  .mensaje_modal p{
+    font-size: 50px;
+    color: #000000;
+  }
+  
+  
+  
+  .btn{
+    color: #ffffff;
+    border: 0;
+    border-radius: 25px;
+    background-color: #007795;
+    cursor: pointer;
+    height: 50px;
+  }
+  
+  .btn:hover{
+    background-color: rgba(0, 0, 0, 0.829);
+  }
+  #map-section {
+    display: flex; /* Usar flexbox para el layout */
+    align-items: flex-start; /* Alinear el contenido al inicio */
+  }
+  
+  #map-text {
+    flex: 1; /* Ocupa un espacio igual */
+    padding-right: 20px; /* Espacio a la derecha */
+  }
+  
+  #map {
+    flex: 1; /* Ocupa un espacio igual */
+  }
+  

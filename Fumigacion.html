@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fumigación</title>
+    <link rel="stylesheet" href="./css/style2.css" />
+    <link rel="stylesheet" href="./css/style1.css" />
+    <link rel="icon" sizes="32x32" type="image/png" href=".\css\img\Logo_LG.jpeg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Agregamos Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <style>
+      
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column; /* Cambiado para incluir la barra de navegación */
+        font-family: Arial, sans-serif;
+      }
+      .contenedor {
+        width: 100%;
+        max-width: 600px;
+        text-align: center;
+        position: relative;
+      }
+      .cuadro {
+        background-color: #b0e57c;
+        border: 1px solid #ccc;
+        padding: 20px;
+        width: 100%;
+        max-width: 750px;
+        border-radius: 10px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .cuadro img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+      .custom-boton {
+        background-color: #3051e2;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        margin-right: 10px;
+      }
+      .custom-boton-cancelar {
+        background-color: #cc3300;
+      }
+      .custom-fecha {
+        border: 2px solid #e0539a; /* Color rosa para la fecha */
+        border-radius: 5px;
+        padding: 8px 12px;
+        margin: 10px 0;
+        background: #fff;
+        color: #000;
+        font-weight: bold;
+      }
+      .custom-cantidad {
+        border: 2px solid #0ec755; /* Verde limón para la cantidad */
+        border-radius: 5px;
+        padding: 8px 12px;
+        margin: 10px 0;
+        background: #fff;
+        color: #000;
+        font-weight: bold;
+      }
+      .hidden {
+        display: none;
+      }
+      .more-services-btn {
+        background-color: #00bfff; /* Azul cielo */
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        box-shadow: 0 0 10px rgba(0, 191, 255, 0.5); /* Efecto de brillo */
+        font-size: 16px;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 20px;
+        position: absolute;
+        left: 20px; /* Posiciona el botón a la izquierda */
+        top: 20px; /* Ajusta la posición vertical según sea necesario */
+      }
+      .more-services-btn:hover {
+        background-color: #1e90ff; /* Azul más oscuro al pasar el ratón */
+      }
+      /* Estilos para el panel de navegación centrado */
+      .navbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 30px;
+      }
+      .navbar-nav {
+        display: inline-flex;
+      }
+      .navbar-center {
+        float: none;
+        margin: 0 auto;
+      }
+      /* Estilos para el footer */
+      footer {
+        background-color: #004d66;
+        color: #ffffff;
+        padding: 40px 0;
+        border-top: 10px solid #00334d;
+        text-align: center;
+      }
+      footer h4 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      footer p {
+        max-width: 600px;
+        margin: 10px auto;
+        font-size: 16px;
+      }
+      footer .social {
+        list-style: none;
+        padding: 20px 0 10px;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+      }
+      footer .social li {
+        margin: 0 15px;
+      }
+      footer .social a {
+        color: #ffffff;
+        text-decoration: none;
+      }
+      footer .social i {
+        font-size: 24px;
+        transition: color 0.3s;
+      }
+      footer .social i:hover {
+        color: #00bfff;
+      }
+      footer a {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+      footer .footer-links {
+        margin-top: 20px;
+      }
+      footer .footer-links a {
+        color: #ffffff;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+      footer .footer-links a:hover {
+        text-decoration: underline;
+      }
+    </style>
+</head>
+<body>
+    <!-- Panel de Navegación Centrado -->
+    <div class="contenedor">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target="#mobile_menu">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="./Lavados Gonzalez.html" class="navbar-brand">Lavados Gonzalez</a>
+                </div>
+                <div class="collapse navbar-collapse" id="mobile_menu">
+                    <ul class="nav navbar-nav">
+                        <li><a href="./Lavados Gonzalez.html">HogarGonzalez</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nosotros <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="./about1.html">Conócenos</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portafolio de servicios <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="./portafolio.html">Servicios</a></li>
+                                <li><a href="./Mis Servicios.html">Mis Servicios</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="./contact.html">Contáctenos</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <form action="" class="navbar-form">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="search" name="search" placeholder="Buscar..." class="form-control" />
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </li>
+                        <li><a href="./Profile.html">Perfil</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login / Sign Up <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="./login.html">Login</a></li>
+                                <li><a href="./signUp.html">Sign Up</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="contenedor">
+      <div class="cuadro">
+        <img src="./css/img/Fumigacion.jpg" alt="Imagen de fumigación" />
+        <h2>Fumigación</h2>
+        <!-- Formulario para insertar o eliminar datos -->
+        <form id="service-form" action="./portafolio.php" method="post">
+          <label for="cantidad">Cantidad:</label>
+          <input
+            type="number"
+            id="cantidad"
+            name="Cantidad"
+            min="1"
+            value=""
+            class="custom-cantidad"
+            required
+          />
+          <br />
+          <label for="fecha">Fecha:</label>
+          <input
+            type="date"
+            id="fecha"
+            name="Fecha"
+            class="custom-fecha"
+            required
+          />
+          <br />
+          <button type="button" id="obtener-btn" class="custom-boton">
+            Obtener
+          </button>
+          <button
+            type="button"
+            id="cancelar-btn"
+            class="custom-boton custom-boton-cancelar hidden"
+          >
+            Cancelar
+          </button>
+          <input type="hidden" id="form-action" name="action" />
+        </form>
+      </div>
+    </div>
+
+    <!-- Botón de más servicios -->
+    <a href="./portafolio.html" class="more-services-btn">Más servicios</a>
+
+    <!-- Agregamos Bootstrap JS y jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const obtenerBtn = document.getElementById("obtener-btn");
+        const cancelarBtn = document.getElementById("cancelar-btn");
+        const form = document.getElementById("service-form");
+        const formActionInput = document.getElementById("form-action");
+        const cantidadInput = document.getElementById("cantidad");
+        const fechaInput = document.getElementById("fecha");
+
+        // Mostrar el botón de cancelar cuando se haga clic en obtener
+        obtenerBtn.addEventListener("click", function () {
+          // Verificar que los campos no estén vacíos antes de enviar la solicitud de inserción
+          if (cantidadInput.value && fechaInput.value) {
+            obtenerBtn.classList.add("hidden");
+            cancelarBtn.classList.remove("hidden");
+            formActionInput.value = "insert";
+            form.submit(); // Enviar el formulario a PHP
+          } else {
+            alert("Por favor, complete todos los campos antes de obtener.");
+          }
+        });
+
+        // Función para resetear el formulario y volver al estado inicial
+        function resetForm() {
+          cantidadInput.value = "";
+          fechaInput.value = "";
+          obtenerBtn.classList.remove("hidden");
+          cancelarBtn.classList.add("hidden");
+        }
+
+        // Botón cancelar
+        cancelarBtn.addEventListener("click", function () {
+          // Verificar que los campos no estén vacíos antes de enviar la solicitud de eliminación
+          if (cantidadInput.value && fechaInput.value) {
+            formActionInput.value = "delete";
+            form.submit(); // Enviar el formulario a PHP
+            // Resetear formulario y volver al estado inicial después de eliminar
+            setTimeout(() => {
+              resetForm();
+            }, 500); // Tiempo de espera para la eliminación
+          } else {
+            alert("Por favor, ingrese todos los campos antes de cancelar.");
+          }
+        });
+
+        // Limpia el formulario después de recargar la página para evitar datos antiguos
+        window.onload = function () {
+          resetForm();
+        };
+      });
+    </script>
+<br><br><br>
+    <!-- Footer -->
+    <footer>
+      <div>
+        <h4><b>Lavados Gonzalez</b></h4>
+        <p>
+          Lavados Gonzalez ofrece servicios profesionales de limpieza en Bogotá y sus alrededores. Nos especializamos en limpieza profunda, mantenimiento de suelos, y más. ¡Contáctanos para obtener una cotización!
+        </p>
+        <ul class="social">
+            <li>
+                <a href="https://www.facebook.com/profile.php?id=100082858706474&mibextid=ZbWKwL">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </li>
+        </ul>
+        <div class="footer-links">
+            <p><b>Teléfono:</b> 314-436-8571</p>
+            <p><b>Email:</b> contacto@lavadosgonzalez.com</p>
+        </div>
+        <div style="margin-top: 20px;">
+          <p>&copy; 2024 Lavados Gonzalez. Todos los derechos reservados.</p>
+          <p><a href="./terms.html">Términos y Condiciones</a> | <a href="./privacy.html">Política de Privacidad</a></p>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>
+

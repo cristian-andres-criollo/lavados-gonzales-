@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style2.css">
+    <title>Vista Previa de la Orden</title>
+    <link rel="icon" sizes="32x32" type="image/png" href="./css/img/vibes-removebg-preview.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            background-color: #cc3300;
+            border-bottom: 2px solid #cc3300;
+        }
+        .navbar .navbar-brand {
+            color: #fff;
+        }
+        .navbar .navbar-brand:hover {
+            color: #fff;
+        }
+        .navbar .nav > li > a {
+            color: #fff;
+        }
+        .navbar .nav > li > a:hover {
+            color: #fff;
+            background-color: #cc3300;
+        }
+        .navbar .dropdown-menu > li > a {
+            color: #333;
+        }
+        .navbar .dropdown-menu > li > a:hover {
+            background-color: #f4f4f4;
+        }
+        .navbar .form-control {
+            border-radius: 0;
+        }
+        .order-preview, .order-form {
+            width: 80%;
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            border: 2px solid #cc3300;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .order-details, .form-details {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 2px solid #cc3300;
+        }
+        .order-details h2, .form-details h2 {
+            text-align: left;
+        }
+        .order-details table, .form-details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .order-details th, .order-details td, .form-details th, .form-details td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .order-details th, .form-details th {
+            background-color: #f2f2f2;
+        }
+        .custom-boton {
+            background-color: #3051e2;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .custom-boton-cancelar {
+            background-color: #cc3300;
+        }
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .button-container .custom-boton-cancelar {
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+  <!-- Panel de Navegación -->
+  <div class="contenedor">
+      <div class="navbar navbar-inverse">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="navbar-header">
+                          <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse">
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                          </button>
+                          <a href="./Lavados Gonzalez.html" class="navbar-brand">Lavados Gonzalez</a>
+                      </div>
+
+                      <div class="navbar-collapse collapse" id="mobile_menu">
+                          <ul class="nav navbar-nav">
+                              <li><a href="./Lavados Gonzalez.html">HogarGonzalez</a></li>
+                              <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Nosotros <span class="caret"></span></a>
+                                  <ul class="dropdown-menu">
+                                      <li><a href="./about1.html">Conócenos</a></li>
+                                  </ul>
+                              </li>
+                              <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portafolio de servicios <span class="caret"></span></a>
+                                  <ul class="dropdown-menu">
+                                      <li><a href="./portafolio.html">Servicios</a></li>
+                                      <li><a href="./Mis Servicios.html">Mis Servicios</a></li>
+                                  </ul>
+                              </li>
+                              <li><a href="./contact.html">Contactenos</a></li>
+                          </ul>
+                          <ul class="nav navbar-nav">
+                              <li>
+                                  <form action="" class="navbar-form">
+                                      <div class="form-group">
+                                          <div class="input-group">
+                                              <input type="search" name="search" id="" placeholder="Buscar..." class="form-control">
+                                              <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                                          </div>
+                                      </div>
+                                  </form>
+                              </li>
+                          </ul>
+
+                          <ul class="nav navbar-nav navbar-right">
+                              <li><a href="./Profile.html">Perfil</a></li>
+                              <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login / Sign Up <span class="caret"></span></a>
+                                  <ul class="dropdown-menu">
+                                      <li><a href="./login.html">Login</a></li>
+                                      <li><a href="./signUp.html">Sign Up</a></li>
+                                  </ul>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Formulario -->
+  <div class="order-form" id="form-container">
+      <h2>Formulario de Servicio de Pintura</h2>
+      <form onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+              <label for="fecha">Fecha:</label>
+              <input type="date" id="fecha" name="fecha" class="form-control" required>
+          </div>
+          <div class="form-group">
+              <label for="cantidad">Cantidad:</label>
+              <input type="number" id="cantidad" name="cantidad" min="1" class="form-control" required>
+          </div>
+          <div class="form-group">
+              <button type="submit" class="custom-boton">Obtener Vista Previa</button>
+          </div>
+      </form>
+  </div>
+
+  <!-- Vista Previa -->
+  <div class="order-preview hidden" id="preview-container">
+      <div class="order-details">
+          <h2>Vista previa del Servicio</h2>
+          <table id="order-table">
+              <tr>
+                  <th>Fecha</th>
+                  <th>Producto</th>
+                  <th>Precio</th>
+                  <th>Cantidad</th>
+                  <th>Sub total</th>
+              </tr>
+              <!-- Los datos se llenarán con JavaScript -->
+          </table>
+          <div class="button-container">
+              <button type="button" id="cancelar-btn" class="custom-boton custom-boton-cancelar" onclick="showForm()">Cancelar</button>
+              <div id="total-container">
+                  <h3>Total: $<span id="total-amount">0</span></h3>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <script>
+      let total = 0; // Inicializar el total
+
+      function handleFormSubmit(event) {
+          event.preventDefault(); // Previene el envío del formulario
+
+          const cantidad = document.getElementById("cantidad").value;
+          const fecha = document.getElementById("fecha").value;
+
+          if (cantidad && fecha) {
+              const precio = 100; // Precio del servicio
+              const subtotal = precio; // El subtotal siempre es igual al precio
+
+              // Mostrar la vista previa con los datos
+              const orderTable = document.getElementById("order-table");
+              const newRow = document.createElement("tr");
+              newRow.innerHTML = `
+                  <td>${fecha}</td>
+                  <td>Servicio de pintura</td>
+                  <td>$${precio}</td>
+                  <td>${cantidad}</td>
+                  <td>$${subtotal}</td>
+              `;
+              orderTable.appendChild(newRow);
+
+              // Actualizar el total
+              total += subtotal;
+              document.getElementById("total-amount").innerText = total.toFixed(2);
+
+              // Mostrar la vista previa y ocultar el formulario
+              document.getElementById("preview-container").classList.remove("hidden");
+              document.getElementById("form-container").classList.add("hidden");
+          }
+      }
+
+      function showForm() {
+          // Volver a mostrar el formulario y ocultar la vista previa
+          document.getElementById("form-container").classList.remove("hidden");
+          document.getElementById("preview-container").classList.add("hidden");
+
+          // Limpiar la vista previa
+          document.getElementById("order-table").innerHTML = `
+              <tr>
+                  <th>Fecha</th>
+                  <th>Producto</th>
+                  <th>Precio</th>
+                  <th>Cantidad</th>
+                  <th>Sub total</th>
+              </tr>
+          `;
+          total = 0;
+          document.getElementById("total-amount").innerText = '0';
+      }
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+

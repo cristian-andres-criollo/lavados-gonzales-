@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/Portafolio.css">
+    <link rel="stylesheet" href="./css/About.css">
+    <title>Portafolio de servicios</title>
+    <link rel="icon" sizes="32x32" type="image/png" href="./css/img/Logo_LG.jpeg">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/31808f4303.js" crossorigin="anonymous"></script>
+    <style>
+        .search-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #search {
+            width: 50%; /* Modificado para que sea más corto */
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #004d66;
+            border-radius: 5px;
+            outline: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        #search:focus {
+            border-color: #027fa8;
+        }
+
+        .search-icon {
+            position: relative;
+            right: 35px;
+            top: -30px;
+            font-size: 20px;
+            color: black; /* Color negro */
+        }
+    </style>
+</head>
+<body>
+  <!-- Panel de Navegacion -->
+  <header class="header">
+    <div class="menu container"> 
+        <input type="checkbox" id="menu">
+        <label for="menu">
+            <img src="" alt="">
+        </label>
+        <center>
+            <nav class="navbar">
+                <ul>
+                    <li><a href=".\Lavados Gonzalez Admin.html">HogarGonzalez</a></li>
+                    <li><a href="about1.html">Conócenos</a></li>
+                    <li class="active"><a href="#">Servicios</a></li>
+                    <li><a href=".\contacto.html">Contáctenos</a></li>
+                    <li><a href="./Profile.html">Perfil</a></li>
+                    <li><a href=".\Cerrar Sesion.php">Cerrar Sesión</a></li> 
+                </ul>
+            </nav>
+        </center> 
+    </div>
+    <br>
+    <br>
+  </header>
+  <div>
+      <div align="center">
+          <main class="main flow">
+              <!-- Buscador -->
+              <div class="search-container">
+                  <i class="fas fa-search search-icon"></i>
+                  <input type="text" id="search" placeholder="Buscar servicios..." onkeyup="filterServices()">
+              </div>
+              <br><br><br>
+              <h1 class="main__heading" style="color: #004d66;">Servicios</h1>
+              <div class="main__cards cards">
+                  <div class="cards__inner">
+                      <div class="cards__card card">
+                          <h2 class="card__heading">Limpieza de muebles</h2>
+                          <p class="card__price" style="color: black;">$70,000-80,000</p>
+                          <ul role="list" class="card__bullets flow">
+                              <img class="Servicios" src="./css/img/Limpieza de mueble 12.jpeg" alt="">
+                          </ul>
+  
+                          <a href="./Limpieza de muebles.html" class="card__cta cta" onmouseover="changeBackground(this)" onmouseout="restoreBackground()">Obten el servicio</a>
+                      </div>
+                      <div class="cards__card card">
+                          <h2 class="card__heading">Limpieza de sillas de comedor</h2>
+                          <p class="card__price" style="color: black;">$7,000</p>
+                          <ul role="list" class="card__bullets flow">
+                              <img class="Servicios" src="./css/img/Limpieza de sillas de comedor 12.jpeg" alt="">
+                          </ul>
+          
+                          <a href="./Limpieza de sillas de comedor.html" class="card__cta cta" onmouseover="changeBackground(this)" onmouseout="restoreBackground()">Obten el servicio</a>
+                      </div>
+                      <div class="cards__card card">
+                          <h2 class="card__heading">Limpieza de tapetes decorativos</h2>
+                          <p class="card__price" style="color: black;">$60,000</p>
+                          <ul role="list" class="card__bullets flow">
+                              <img class="Servicios" src="./css/img/Limpieza de tapetes decorativos 12.jpeg" alt="">
+                          </ul>
+                          
+                          <a href="./Limpieza de tapetes decorativos.html" class="card__cta cta" onmouseover="changeBackground(this)" onmouseout="restoreBackground()">Obten el servicio</a>
+                      </div>
+                      <div class="cards__card card">
+                          <h2 class="card__heading">Limpieza de alfombras</h2>
+                          <p class="card__price" style="color: black;">$60,000</p>
+                          <ul role="list" class="card__bullets flow">
+                              <img class="Servicios" src="./css/img/Limpieza de alfombras 12.jpeg" alt="">
+                          </ul>
+                          
+                          <a href="./Limpieza de alfombras.html" class="card__cta cta" onmouseover="changeBackground(this)" onmouseout="restoreBackground()">Obten el servicio</a>
+                      </div>
+                      <div class="cards__card card">
+                          <h2 class="card__heading">Lavado de colchones</h2>
+                          <p class="card__price" style="color: black;">$60,000-100,000</p>
+                          <ul role="list" class="card__bullets flow">
+                              <img class="Servicios" src="./css/img/Lavado de colchones 12.jpeg" alt="">
+                          </ul>
+                          
+                          <a href="./Lavado de colchones.html" class="card__cta cta" onmouseover="changeBackground(this)" onmouseout="restoreBackground()">Obten el servicio</a>
+                      </div>
+                      <div class="cards__card card">
+                          <h2 class="card__heading">Lavado de vehículos y cojinería</h2>
+                          <p class="card__price" style="color: black;">$70,000</p>
+                          <ul role="list" class="card__bullets flow">
+                              <img class="Servicios" src=".\css\img\Lavado de vehiculos 12.jpeg" alt="">
+                          </ul>
+                        
+                          <a href="./Lavado de vehiculos y cojineria.html" class="card__cta cta" onmouseover="changeBackground(this)" onmouseout="restoreBackground()">Obten el servicio</a>
+                      </div>
+                      <div class="cards__card card">
+                          <h2 class="card__heading">Lavado de toda clase de cortinas</h2>
+                          <p class="card__price" style="color: black;">$20,000-80,000</p>
+                          <ul role="list" class="card__bullets flow">
+                              <img class="Servicios" src="./css/img/Lavado de toda clase de cortinas 12.jpeg" alt="">
+                          </ul>
+
+                          <a href="./Lavado de toda clase de cortinas.html" class="card__cta cta" onmouseover="changeBackground(this)" onmouseout="restoreBackground()">Obten el servicio</a>
+                      </div>
+                      <div class="cards__card card">
+                          <h2 class="card__heading">Mantenimiento y pulido de pisos laminados, madera, mármol, piedra muñeca, tableta alfa</h2>
+                          <p class="card__price" style="color: black;">$100,000</p>
+                          <ul role="list" class="card__bullets flow">
+                              <img class="Servicios" src=".\css\img\Mantenimiento y pulida de pisos laminados, madera, marmol, piedra muñeca, tableta alfa 12.jpeg" alt="">
+                          </ul>
+             
+                          <a href="./Mantenimiento y pulida de pisos.html" class="card__cta cta" onmouseover="changeBackground(this)" onmouseout="restoreBackground()">Obten el servicio</a>
+                      </div>
+                      <div class="cards__card card">
+                          <h2 class="card__heading">Servicio de pintura casas, apartamentos, locales, etc.</h2> 
+                          <p class="card__price" style="color: black;">$100,000</p>
+                          <ul role="list" class="card__bullets flow">
+                              <img class="Servicios" src=".\css\img\Servicio de pintura casas, apartamentos, locales etc 12.jpeg" alt="">
+                          </ul>
+                
+                          <a href="./Servicio de pintura.html" class="card__cta cta" onmouseover="changeBackground(this)" onmouseout="restoreBackground()">Obten el servicio</a>
+                      </div>
+                  </div>
+                  <br>
+                  <br>
+                  <script>
+                      function changeBackground(button) {
+                          const card = button.closest('.card');
+                          const img = card.querySelector('img').src;
+                          document.body.style.backgroundImage = `url(${img})`;
+                          document.body.style.backgroundSize = 'cover';
+                      }
+
+                      function restoreBackground() {
+                          document.body.style.backgroundImage = '';
+                      }
+
+                      function filterServices() {
+                          const input = document.getElementById('search');
+                          const filter = input.value.toLowerCase();
+                          const cards = document.querySelectorAll('.cards__card');
+
+                          cards.forEach(card => {
+                              const title = card.querySelector('.card__heading').textContent.toLowerCase();
+                              if (title.includes(filter)) {
+                                  card.style.display = '';
+                              } else {
+                                  card.style.display = 'none';
+                              }
+                          });
+                      }
+                  </script>
+              </div>
+          </main>
+      </div>
+      <br><br><br><br><br><br>
+      <footer style="background-color: #ffffff; color: #00334d; padding: 40px 0; border-top: 10px solid #00334d;">
+        <div style="text-align: center;">
+          <h4><b>Lavados Gonzalez</b></h4>
+          <p style="max-width: 600px; margin: 0 auto; line-height: 1.6;">
+            Lavados Gonzalez ofrece servicios profesionales de limpieza en Bogotá y sus alrededores. Nos especializamos en limpieza profunda, mantenimiento de suelos, y más. ¡Contáctanos para obtener una cotización!
+          </p>
+          <br>
+          <ul class="social" style="list-style: none; padding: 20px 0 10px;">
+            <li style="display: inline-block; margin: 0 15px;">
+              <a href="https://www.facebook.com/profile.php?id=100082858706474&mibextid=ZbWKwL" style="color: #00334d; text-decoration: none;">
+                <i class="fab fa-facebook fa-2x"></i>
+              </a>
+            </li>
+            <li style="display: inline-block; margin: 0 15px;">
+              <a href="#" style="color: #00c3ff; text-decoration: none;">
+                <i class="fab fa-twitter fa-2x"></i>
+              </a>
+            </li>
+            <li style="display: inline-block; margin: 0 15px;">
+              <a href="#" style="color: #ff0095; text-decoration: none;">
+                <i class="fab fa-instagram fa-2x"></i>
+              </a>
+            </li>
+          </ul>
+          <br><center>
+          <div style="margin-top: 20px;">
+            <p><b>Teléfono:</b> <a href="tel:3144368571" style="color: #00334d; text-decoration: none;">314-436-8571</a></p>
+            <p><b>Email:</b> <a href="mailto:contacto@lavadosgonzalez.com" style="color: #00334d; text-decoration: none;">contacto@lavadosgonzalez.com</a></p>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+          <p>&copy; 2024 Lavados Gonzalez. Todos los derechos reservados.</p>
+          <p>
+            <a href="./terms.html" style="color: #00c3ff; text-decoration: none; margin-right: 15px;">Términos y Condiciones</a> | 
+            <a href="./privacy.html" style="color: #00c3ff; text-decoration: none; margin-left: 15px;">Política de Privacidad</a>
+          </p>
+        </div>
+    </center>
+      </footer>
+  </div>
+</body>
+</html>

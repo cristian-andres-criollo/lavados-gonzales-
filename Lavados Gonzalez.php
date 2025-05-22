@@ -1,0 +1,341 @@
+
+
+<?php
+session_start();
+if (!isset($_SESSION['Usuario']) || $_SESSION['id_cargo'] != 1) {
+    echo '<script>alert("Faltan permisos."); history.go(-1);</script>';
+    exit();
+}
+?>
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style1.css">
+    <link rel="stylesheet" href="./css/Portafolio.css">
+    <link rel="stylesheet" href=".\css\General.css">
+    <link rel="stylesheet" href=".\css\Inicio.css">
+    <title>Lavados Gonzalez</title>
+    <link rel="icon" sizes="32x32" type="image/png" href=.\css\img\Logo_LG.jpeg>
+    <script src="https://kit.fontawesome.com/48649cf999.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<style>
+        .Empleado {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centra el contenido en el eje vertical */
+        }
+
+        .carta1 {
+            display: flex; /* Habilita flexbox */
+            justify-content: center; /* Centra horizontalmente las cartas */
+            flex-wrap: nowrap; /* Mantiene las tarjetas en una sola línea */
+            gap: 20px; /* Espacio entre tarjetas */
+            /* Cambia overflow-x a visible o elimina esta línea */
+            overflow-x: visible; /* Permite que las cartas se ajusten sin scroll */
+            max-width: 100%; /* Asegura que no exceda el contenedor */
+        }
+
+        .Trabajador {
+            text-align: center;
+            width: 200px; /* Ajusta el ancho de cada tarjeta */
+            margin: 10px; /* Espacio adicional entre tarjetas */
+        }
+
+        /* Estilos para el modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Panel de Navegacion -->
+    <header class="header">
+        <div class="menu container">
+            <input type="checkbox" id="menu">
+            <label for="menu">
+                <img src="" alt="">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li class="active"><a href="#">HogarGonzalez</a></li>
+                    <li><a href="./about1.php">Conócenos</a></li>
+                    <li><a href=".\portafolio.html">Portafolio de servicios</a></li>
+                    <li><a href=".\contacto.html">Contáctenos</a></li>
+                    <li><a href="./Profile.html">Perfil</a></li>
+                    <li><a href=".\Cerrar Sesion.php">Cerrar Sesion</a></li>
+                </ul>
+            </nav>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="header-content container">
+            <div class="header-txt">
+                <h1>Lavados González</h1>
+                <p>
+                    Nuestros SERVICIOS se encargan del mantenimiento y cuidado de tu hogar. Le damos a nuestra <b>clientela</b> una evolución económica, laboral y empresarial.
+                </p>
+            </div>
+        </div>
+    </header>
+    <br>
+    <br>
+    <br>
+    <div class="contenedor">
+        <h4 class="main__heading" style="color: #00334d;">Un poco de nuestro trabajo</h4>
+        <div class="scrolling-container">
+            <div class="trabajos">
+                <div class="scrolling-card">
+                    <div class="card">
+                        <img src="./css/img/antes y despues4.jpg" alt="Trabajo 1" />
+                        <div class="card-info">
+                            <h2>Lavado de colchones</h2>
+                            <p>En general, siempre prueba cualquier</p>
+                            <p>producto de limpieza en un área</p>
+                            <p>pequeña antes de usarlo y sigue</p>
+                            <p>las instrucciones del fabricante para</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./css/img/antes y despues3.jpg" alt="Trabajo 4" />
+                        <div class="card-info">
+                            <h2>Limpieza de muebles</h2>
+                            <p>En general, siempre prueba cualquier</p>
+                            <p>producto de limpieza en un área</p>
+                            <p>pequeña antes de usarlo y sigue</p>
+                            <p>las instrucciones del fabricante para</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./css/img/antes y despues1.jpg" alt="Trabajo 5" />
+                        <div class="card-info">
+                            <h2>Limpieza de sillas</h2>
+                            <p>En general, siempre prueba cualquier</p>
+                            <p>producto de limpieza en un área</p>
+                            <p>pequeña antes de usarlo y sigue</p>
+                            <p>las instrucciones del fabricante para</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const rightBtn = document.querySelector("#scrolling-button-right");
+            const leftBtn = document.querySelector("#scrolling-button-left");
+            const content = document.querySelector(".trabajos");
+
+            rightBtn.addEventListener("click", () => {
+                content.scrollLeft += 300;
+            });
+
+            leftBtn.addEventListener("click", () => {
+                content.scrollLeft -= 300;
+            });
+        });
+    </script>
+
+    <br>
+    <br>
+    <div>
+        <section class="Empleado"> 
+            <h2 class="main__heading" style="color: #ffffff;">Trabajadores</h2>
+            <section class="carta1">
+                <div class="Trabajador">
+                    <img src=".\css\img\OIP.png" alt="">
+                    <h4>Edilberto Gonzalez</h4>
+                    <h4>1028112706</h4>
+                    <h4><a href="#" style="color: rgb(76, 180, 180);" onclick="openModal('edilbertoModal')">Conoce más<i class="fas fa-chevron-right"></i></a></h4>
+                </div>
+                
+                <!-- Modal Edilberto -->
+                <div id="edilbertoModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('edilbertoModal')">&times;</span>
+                        <img src=".\css\img\OIP.png" alt="Edilberto Gonzalez">
+                        <h2>Edilberto Gonzalez</h2>
+                        <p>ID: 1028112706</p>
+                        <p>Habilidades: Limpieza profunda, mantenimiento de suelos, gestión de equipos</p>
+                        <p>Proyectos anteriores: Empresa XYZ, Residencia ABC</p>
+                        <p>Testimonios: "Edilberto hizo un trabajo excelente en nuestra oficina" - Cliente 1</p>
+                    </div>
+                </div>
+
+                <div class="Trabajador">
+                    <img src=".\css\img\OIP (1).png" alt="">
+                    <h4>Orlando Galindo</h4>
+                    <h4>1073818389</h4>
+                    <h4><a href="#" style="color: rgb(76, 180, 180);" onclick="openModal('orlandoModal')">Conoce más<i class="fas fa-chevron-right"></i></a></h4>
+                </div>
+                <!-- Modal para Orlando -->
+                <div id="orlandoModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('orlandoModal')">&times;</span>
+                        <img src=".\css\img\OIP (1).png" alt="Orlando Galindo">
+                        <h2>Orlando Galindo</h2>
+                        <p>ID: 1073818389</p>
+                        <p>Experiencia: 3 años en limpieza profesional</p>
+                        <p>Habilidades: Limpieza de ventanas, manejo de productos químicos, atención al cliente</p>
+                        <p>Testimonios: "Orlando es muy puntual y confiable" - Cliente 2</p>
+                    </div>
+                </div>
+
+                <div class="Trabajador">
+                    <img src=".\css\img\OIP (2).png" alt="">
+                    <h4>Juan David Arrieta</h4>
+                    <h4>1067885516</h4>
+                    <h4><a href="#" style="color: rgb(76, 180, 180);" onclick="openModal('juanModal')">Conoce más<i class="fas fa-chevron-right"></i></a></h4>
+                </div>
+                <!-- Modal para Juan -->
+                <div id="juanModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('juanModal')">&times;</span>
+                        <img src=".\css\img\OIP (2).png" alt="Juan David Arrieta">
+                        <h2>Juan David Arrieta</h2>
+                        <p>ID: 1067885516</p>
+                        <p>Habilidades: Mantenimiento de jardines, limpieza de alfombras, atención al cliente</p>
+                        <p>Proyectos anteriores: Empresa ABC, Residencia XYZ</p>
+                        <p>Testimonios: "Juan siempre tiene una sonrisa y hace un excelente trabajo" - Cliente 3</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </div>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
+        }
+    </script>
+<br>
+<section class="reviews">
+  <h2 class="main__heading" style="color: #00334d;">Lo Que Dicen Nuestros Clientes</h2>
+  <br><br><br>
+  <div class="review-container">
+    <div class="review-card">
+      <img src=".\css\img\Juan Perez.png" alt="Cliente Juan Pérez" class="review-image" width="250px" height="250px">
+      <p><strong>Juan Pérez</strong></p>
+      <p>"Excelente servicio, dejaron mis alfombras como nuevas. Muy recomendados!"</p>
+    </div>
+    <div class="review-card">
+      <img src=".\css\img\Maria Gomez.png" alt="Cliente María Gómez" class="review-image" width="250px" height="250px">
+      <p><strong>María Gómez</strong></p>
+      <p>"Profesionales y puntuales. Me encantó el resultado de la limpieza."</p>
+    </div>
+    <div class="review-card">
+      <img src=".\css\img\Andres Lopez.png" alt="Cliente Andrés López" class="review-image" width="250px" height="250px">
+      <p><strong>Andrés López</strong></p>
+      <p>"Gran atención al cliente y resultados impresionantes. Sin duda volveré."</p>
+    </div>
+    <div class="review-card">
+      <img src=".\css\img\banner de perfil.jpg" alt="Cliente Carmen Torres" class="review-image" width="250px" height="250px">
+      <p><strong>Carmen Torres</strong></p>
+      <p>"¡Fantástico trabajo! Mi sofá se ve como nuevo. ¡Gracias!"</p>
+    </div>
+  </div>
+</section>
+</section>
+  
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  
+    <footer style="background-color: #ffffff; color: #00334d; padding: 40px 0; border-top: 10px solid #00334d;">
+      <div style="text-align: center;">
+        <h4><b>Lavados Gonzalez</b></h4>
+        <p style="max-width: 600px; margin: 0 auto; line-height: 1.6;">
+          Lavados Gonzalez ofrece servicios profesionales de limpieza en Bogotá y sus alrededores. Nos especializamos en limpieza profunda, mantenimiento de suelos, y más. ¡Contáctanos para obtener una cotización!
+        </p>
+        <br>
+        <ul class="social" style="list-style: none; padding: 20px 0 10px;">
+          <li style="display: inline-block; margin: 0 15px;">
+            <a href="https://www.facebook.com/profile.php?id=100082858706474&mibextid=ZbWKwL" style="color: #00334d; text-decoration: none;">
+              <i class="fab fa-facebook fa-2x"></i>
+            </a>
+          </li>
+          <li style="display: inline-block; margin: 0 15px;">
+            <a href="#" style="color: #00c3ff; text-decoration: none;">
+              <i class="fab fa-twitter fa-2x"></i>
+            </a>
+          </li>
+          <li style="display: inline-block; margin: 0 15px;">
+            <a href="#" style="color: #ff0095; text-decoration: none;">
+              <i class="fab fa-instagram fa-2x"></i>
+            </a>
+          </li>
+        </ul>
+        <br>
+        <div style="margin-top: 20px;">
+          <p><b>Teléfono:</b> <a href="tel:3144368571" style="color: #00334d; text-decoration: none;">314-436-8571</a></p>
+          <p><b>Email:</b> <a href="mailto:contacto@lavadosgonzalez.com" style="color: #00334d; text-decoration: none;">contacto@lavadosgonzalez.com</a></p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 20px;">
+        <p>&copy; 2024 Lavados Gonzalez. Todos los derechos reservados.</p>
+        <p>
+          <a href="./terms.html" style="color: #00c3ff; text-decoration: none; margin-right: 15px;">Términos y Condiciones</a> | 
+          <a href="./privacy.html" style="color: #00c3ff; text-decoration: none; margin-left: 15px;">Política de Privacidad</a>
+        </p>
+      </div>
+    </footer>
+    
+</div>
+</div>
+
+
+</body>
+</html>
